@@ -1,0 +1,63 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Blog</title>
+    <link href="{% static 'blog/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+  </head>
+  <body>
+ 
+ 
+    <div class="page-header">
+
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="top-menu">
+          <span class="material-symbols-outlined lg-icons">logout</span>
+        </a>
+
+        <a href="{% url 'blog:post-create' %}" class="top-menu">
+          <span class="material-symbols-outlined lg-icons">add</span>
+        </a>
+
+        <a href="{% url 'blog:draft-list' %}" class="top-menu">
+          <span class="material-symbols-outlined lg-icons">draft</span>
+        </a>
+ 
+      {% else %}
+        <a href="{% url 'login' %}" class="top-menu">
+          <span class="material-symbols-outlined lg-icons">login</span>
+        </a>
+ 
+      {% endif %}
+ 
+
+ 
+
+
+      <h1>
+        <a href="/">
+          <img src="{% static 'blog/img/favicon.ico' %}"
+               alt="Personal Blog"
+               width="90px;">
+          Personal Blog
+        </a>
+      </h1>
+    </div>
+    <div class="container content">
+      {% block content %}
+ 
+      {% endblock content %}
+    </div>
+    <script src="{% static 'blog/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

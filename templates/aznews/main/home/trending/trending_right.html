@@ -1,0 +1,17 @@
+{% load static %}
+<!-- Riht content -->
+<div class="col-lg-4">
+    {% for post in posts %}
+    <div class="trand-right-single d-flex">
+        <div class="trand-right-img">
+            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" width="170px">
+        </div>
+        <div class="trand-right-cap">
+            <span class="color1">{{ post.category }}</span>
+            <h4><a href="details.html">{{ post.title|truncatechars:40 }}</a></h4>
+        </div>
+    </div>
+
+    {% endfor %}
+    
+</div>

@@ -1,0 +1,30 @@
+<div class="comment-form">
+   <h4>Leave a Reply</h4>
+   <form class="form-contact comment_form" action="{% url 'comment' %}" id="commentForm" method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="post" value="{{ post.id }}" <div class="row">
+      <div class="col-12">
+         <div class="form-group">
+            <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+               placeholder="Write Comment"></textarea>
+            {{ form.comment.errors }}
+         </div>
+      </div>
+      <div class="col-sm-6">
+         <div class="form-group">
+            <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+            {{ form.name.errors }}
+         </div>
+      </div>
+      <div class="col-sm-6">
+         <div class="form-group">
+            <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+            {{ form.email.errors }}
+         </div>
+      </div>
+
+      <div class="form-group">
+         <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
+      </div>
+   </form>
+</div>
